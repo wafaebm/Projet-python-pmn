@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 class DataAggregator:
     """
@@ -76,6 +77,15 @@ class DataAggregator:
             .sort_values("quantite", ascending=False)
         )
 
+    def quantity_distribution(self):
+        """
+        Calculate the distribution of quantities sold (how many timeseach quantity appears)
+        using NumPy to maximize performance.
+        """
+        vals = self.df['quantite'].fillna(0).to_numpy(dtype=np.int32)
+        unique, counts = np.unique(vals, return_counts=True)
+        return dict(zip(unique, counts))
+    
     def chiffre_affaires_par_ville(self) -> pd.DataFrame:
         """
         Sum of revenue per city.

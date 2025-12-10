@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 
 class DataCleaner:
     """
@@ -26,7 +27,16 @@ applies custom transformations
         """Apply a custom function to a column."""
         self.df[column] = self.df[column].apply(func)
         return self
-
+    
+    def remove_outliers_zscore(self, column, threshold=3):
+        """Detect and  delete extreme values(outliers) in column with Z-score = (x - mean) / standard deviation
+    A value is considered as outlier if |Z| > threshold."""
+        data = self.df[column].to_numpy()
+        z = np.abs((data - data.mean()) / data.std())
+        mask = z < threshold
+        self.df = self.df[mask]
+        return self.df
+    
     def get(self) -> pd.DataFrame:
         """Return the cleaned DataFrame."""
         return self.df
