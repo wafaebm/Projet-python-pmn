@@ -7,7 +7,7 @@ class CSVLoader:
     The CSV Loader take a CSV file and returns a pandas DataFrame
     """
 
-    def init(self, filepath: str, separator: str = ","):
+    def __init__(self, filepath: str, separator: str = ","):
         self.filepath = filepath
         self.separator = separator
 
