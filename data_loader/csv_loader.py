@@ -1,5 +1,4 @@
 import pandas as pd
-from .exceptions import LoaderError
 
 
 class CSVLoader:

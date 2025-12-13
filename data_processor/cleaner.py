@@ -36,6 +36,18 @@ applies custom transformations
         mask = z < threshold
         self.df = self.df[mask]
         return self.df
+        
+    def clean(self) -> pd.DataFrame:
+        """
+        Default cleaning for the sales dataset.
+
+        - Keep the columns from ventes_2025.csv
+        (date, produit, categorie, prix, quantite, ville, source)
+        """
+        columns = ["date", "produit", "categorie", "prix", "quantite", "ville", "source"]
+        # si une colonne manque, ça lèvera une KeyError -> c'est normal
+        self.df = self.df[columns]
+        return self.df
     
     def get(self) -> pd.DataFrame:
         """Return the cleaned DataFrame."""

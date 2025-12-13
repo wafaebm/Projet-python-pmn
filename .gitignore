@@ -1,4 +1,16 @@
-pycache/
-*.pyc
+# Environnements
+venv/
 .venv/
-.env
+__pycache__/
+*.pyc
+
+# Fichiers générés
+logs/
+reports/
+data/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
