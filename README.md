@@ -17,6 +17,7 @@ Le pipeline permet de :
 
 ## Architecture (couches)
 
+```
 projet_analyse/
 ├── data_loader/          # Couche d'entree des donnees
 │   ├── __init__.py
@@ -40,7 +41,7 @@ projet_analyse/
 ├── config.py             # Configuration centralisee
 ├── requirements.txt      # Dependencies
 └── README.md             # Documentation
-
+```
 ---
 
 ## Installation
