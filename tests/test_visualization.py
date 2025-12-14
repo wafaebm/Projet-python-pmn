@@ -36,6 +36,27 @@ def test_chart_builder_saves_png(tmp_path, monkeypatch):
     cb.plot_histogram("prix", save_path=str(out))
     assert out.exists()
 
+def test_chart_builder_saves_bar(tmp_path, monkeypatch):
+    monkeypatch.setattr(plt, "show", lambda: None)
+
+    df = _make_df()
+    cb = ChartBuilder(df)
+
+    out = tmp_path / "bar.png"
+    cb.plot_bar("produit", "prix", save_path=str(out))
+    assert out.exists()
+
+
+def test_chart_builder_saves_pie(tmp_path, monkeypatch):
+    monkeypatch.setattr(plt, "show", lambda: None)
+
+    df = _make_df()
+    cb = ChartBuilder(df)
+
+    out = tmp_path / "pie.png"
+    cb.plot_pie("categorie", save_path=str(out))
+    assert out.exists()    
+    
 
 def test_report_generator_creates_pdf(tmp_path):
     df = _make_df()
@@ -43,7 +64,7 @@ def test_report_generator_creates_pdf(tmp_path):
     charts_dir = tmp_path / "charts"
     charts_dir.mkdir()
 
-    # ✅ Créer de vraies images PNG lisibles
+    
     _make_dummy_png(str(charts_dir / "ventes_par_categorie.png"))
     _make_dummy_png(str(charts_dir / "ventes_par_ville.png"))
     _make_dummy_png(str(charts_dir / "top_produits.png"))
