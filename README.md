@@ -85,9 +85,9 @@ python -m pytest --cov=. --cov-report=term-missing
    python -m pytest -q
 
 
-## Exemples d’utilisation
+### Exemples d’utilisation
 
-### Charger un CSV
+## Charger un CSV
 ```python
 from data_loader.csv_loader import CSVLoader
 
@@ -176,3 +176,20 @@ def load(self) -> pd.DataFrame:
         Si le fichier n'existe pas ou si la lecture échoue.
     """
 ```
+
+### API REST (FastAPI)
+
+## Lancer l'API
+uvicorn api.app:app --reload
+
+## Documentation interactive
+
+FastAPI génère automatiquement une documentation interactive de l’API (Swagger UI).
+Une fois l’API lancée, ouvrir dans le navigateur :
+/docs → interface Swagger (tests des endpoints)
+/openapi.json → spécification OpenAPI
+
+## Tests de l’API
+
+Les endpoints ont été validés manuellement via la documentation interactive FastAPI.
+Des tests automatisés peuvent être ajoutés avec fastapi.testclient pour les scénarios critiques (upload CSV, génération PDF).
