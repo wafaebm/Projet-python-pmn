@@ -1,7 +1,13 @@
-pytest
-pytest-cov
+pandas==2.3.3
+numpy==2.3.5
+matplotlib==3.10.8
+plotly==6.5.0
+reportlab==4.4.6
 
-fastapi
-uvicorn[standard]
-python-multipart
-httpx
+fastapi==0.124.4
+uvicorn==0.38.0
+python-multipart==0.0.20
+httpx==0.28.1
+
+pytest==9.0.2
+pytest-cov==7.0.0
