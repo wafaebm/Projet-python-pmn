@@ -54,6 +54,7 @@ cd Projet-python-pmn
 
 #### Creer et activer un environement virtuel
 python -m venv venv
+
 venv\Scripts\activate
 
 #### Installer les dépendances
